@@ -1,0 +1,41 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="OptionValueWrapper" Version="1.0.1" />
+      <PackageReference Include="Spectre.Console" Version="0.45.1-preview.0.33" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Factories" />
+      <Folder Include="Inputs\Matt" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Helpers\Helpers.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="Inputs\Chris\c1.txt" />
+      <None Remove="Inputs\Eddie\c1.txt" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="Inputs\Chris\1.txt" />
+      <EmbeddedResource Include="Inputs\Chris\1.txt">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </EmbeddedResource>
+      <None Remove="Inputs\Eddie\1.txt" />
+      <EmbeddedResource Include="Inputs\Eddie\1.txt">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </EmbeddedResource>
+    </ItemGroup>
+
+</Project>
