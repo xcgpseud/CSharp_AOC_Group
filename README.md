@@ -1,3 +1,7 @@
+# What is this?
+
+We're doing AOC 2021 in this repo currently, see [HERE](https://adventofcode.com/2021)
+
 # How to use
 
 > This assumes directories etc. have already been configured for you. ATM just see Chris if you want adding to this, or add yourself if you can figure out how.
