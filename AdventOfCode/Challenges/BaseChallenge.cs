@@ -1,4 +1,5 @@
-﻿using AdventOfCode.Interfaces.Challenges;
+﻿using AdventOfCode.Enums;
+using AdventOfCode.Interfaces.Challenges;
 using Helpers;
 
 namespace AdventOfCode.Challenges;
@@ -10,6 +11,11 @@ public abstract class BaseChallenge : IChallenge
     protected BaseChallenge(int challengeId)
     {
         ChallengeId = challengeId;
+    }
+
+    protected string GetFileName(Name name)
+    {
+        return Constants.Files.GetFile(name, $"{ChallengeId}.txt");
     }
 
     public void Run()
