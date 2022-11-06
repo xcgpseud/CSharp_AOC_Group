@@ -16,7 +16,8 @@ namespace AdventOfCode.Challenges.Eddie
 
         public override string GetPartOneAnswer()
         { // 90315
-            return Movement().ToString();
+            return Movement()
+                   .ToString();
         }
 
         public override string GetPartTwoAnswer()
@@ -32,14 +33,20 @@ namespace AdventOfCode.Challenges.Eddie
         int nextSplit = 0;
         public int Movement()
         {
-            string[] input = FileHelper.GetFileLines(GetFileName(Name.Eddie));
+            string[] input = FileHelper
+                            .GetFileLines
+                            (GetFileName
+                            (Name.Eddie));
 
             foreach (var x in input)
             {
 
-                string[] splitting = input[nextSplit].Split(' ');
+                string[] splitting = input[nextSplit]
+                                    .Split(' ');
+
                 var direction = splitting[0];
-                var counter = Int32.Parse(splitting[1]);
+                var counter = Int32.Parse
+                              (splitting[1]);
 
                 if (direction == forward)
                 {

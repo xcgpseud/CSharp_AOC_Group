@@ -16,19 +16,26 @@ namespace AdventOfCode.Challenges.Eddie
 
         public override string GetPartOneAnswer()
         {
-            return Increimdaitent().ToString();
+            return Increimdaitent()
+                  .ToString();
 
         }
 
         public override string GetPartTwoAnswer()
         {
-            return IncrimentPart2().ToString();
+            return IncrimentPart2()
+                  .ToString();
         }
 
 
         public int Increimdaitent()
         {
-            var input = FileHelper.GetFileLines(GetFileName(Name.Eddie) , int.Parse);
+            var input = FileHelper
+                .GetFileLines
+                (GetFileName
+                (Name.Eddie),
+                int.Parse);
+
             int increaseCount = 0;
             for (int i = 0; i < input.Length; i++)
             {
@@ -41,7 +48,12 @@ namespace AdventOfCode.Challenges.Eddie
         }
         public int IncrimentPart2()
         {
-            var input = FileHelper.GetFileLines(GetFileName(Name.Eddie) , int.Parse);
+            var input = FileHelper
+                .GetFileLines
+                (GetFileName
+                (Name.Eddie),
+                int.Parse);
+
             int increaseCount = 0;
 
 
