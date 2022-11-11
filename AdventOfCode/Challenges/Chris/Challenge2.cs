@@ -1,21 +1,41 @@
 ﻿using AdventOfCode.Enums;
-using AdventOfCode.Services;
+using Domain.DataModels.Water;
 using Helpers;
 
 namespace AdventOfCode.Challenges.Chris;
 
 public class Challenge2 : BaseChallenge
 {
+    private WaterModel _water = WaterModel.Make();
+
     public Challenge2(int challengeId) : base(challengeId)
     {
     }
 
-    public override string GetPartOneAnswer()
+    private SubmarineInstruction[] GetInput()
     {
-        var input = FileHelper.GetFileLines(GetFileName(Name.Chris));
-
-        return SubmarineService.Make().GoOnJourney(input).ToString();
+        return FileHelper.GetFileLines(GetFileName(Name.Chris), line =>
+        {
+            var split = line.Split(' ');
+            return new SubmarineInstruction
+            {
+                Direction = split[0],
+                Distance = int.Parse(split[1]),
+            };
+        });
     }
 
-    public override string GetPartTwoAnswer() => string.Empty;
+    public override string GetPartOneAnswer()
+    {
+        var input = GetInput();
+
+        return _water.Submarine.TravelAndReportBack(input).ToString();
+    }
+
+    public override string GetPartTwoAnswer()
+    {
+        var input = GetInput();
+
+        return _water.ArmedSubmarine.TravelAndReportBack(input).ToString();
+    }
 }
