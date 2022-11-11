@@ -37,6 +37,7 @@
       <EmbeddedResource Include="Inputs\Eddie\1.txt">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </EmbeddedResource>
+
       <EmbeddedResource Include="Inputs\Eddie\2.txt">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </EmbeddedResource>
@@ -46,6 +47,12 @@
       <Compile Update="Challenges\Eddie\Challenge2p1.cs">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </Compile>
+
+      <None Remove="Inputs\Chris\2.txt" />
+      <EmbeddedResource Include="Inputs\Chris\2.txt">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </EmbeddedResource>
+
     </ItemGroup>
 
 </Project>
