@@ -1,10 +1,12 @@
-﻿namespace Domain.DataModels.Water;
+﻿using Domain.DataModels.Interfaces.Water;
+
+namespace Domain.DataModels.Water;
 
 public class WaterModel
 {
-    public SubmarineModel Submarine { get; } = SubmarineModel.Make();
+    public ISubmarineModel Submarine { get; } = RegularSubmarineModel.Make();
 
-    public ArmedSubmarineModel ArmedSubmarine { get; } = ArmedSubmarineModel.Make();
+    public ISubmarineModel ArmedSubmarine { get; } = ArmedSubmarineModel.Make();
 
     public static WaterModel Make()
     {

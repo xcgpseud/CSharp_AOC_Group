@@ -29,13 +29,13 @@ public class Challenge2 : BaseChallenge
     {
         var input = GetInput();
 
-        return _water.Submarine.TravelAndReportBack(input).ToString();
+        return _water.Submarine.TravelAndReportLocation(input).ToString();
     }
 
     public override string GetPartTwoAnswer()
     {
         var input = GetInput();
 
-        return _water.ArmedSubmarine.TravelAndReportBack(input).ToString();
+        return _water.ArmedSubmarine.TravelAndReportLocation(input).ToString();
     }
 }

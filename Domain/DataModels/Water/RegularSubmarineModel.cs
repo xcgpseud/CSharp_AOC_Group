@@ -2,14 +2,12 @@
 
 namespace Domain.DataModels.Water;
 
-public class ArmedSubmarineModel : SubmarineModel
+public class RegularSubmarineModel : SubmarineModel, ISubmarineModel
 {
     public static ISubmarineModel Make()
     {
-        return new ArmedSubmarineModel();
+        return new RegularSubmarineModel();
     }
-
-    private int Aim { get; set; }
 
     public override int TravelAndReportLocation(IEnumerable<SubmarineInstruction> instructions)
     {
@@ -18,34 +16,33 @@ public class ArmedSubmarineModel : SubmarineModel
         return HorizontalPosition * Depth;
     }
 
-    private void AimUp(int amount)
+    private void MoveForward(int distance)
     {
-        Aim -= amount;
+        HorizontalPosition += distance;
     }
 
-    private void AimDown(int amount)
+    private void MoveUp(int distance)
     {
-        Aim += amount;
+        Depth -= distance;
     }
 
-    private void MoveForward(int amount)
+    private void MoveDown(int distance)
     {
-        HorizontalPosition += amount;
-        Depth += Aim * amount;
+        Depth += distance;
     }
 
     private void ExecuteInstruction(SubmarineInstruction instruction)
     {
         switch (instruction.Direction)
         {
-            case "up":
-                AimUp(instruction.Distance);
-                break;
-            case "down":
-                AimDown(instruction.Distance);
-                break;
             case "forward":
                 MoveForward(instruction.Distance);
+                break;
+            case "up":
+                MoveUp(instruction.Distance);
+                break;
+            case "down":
+                MoveDown(instruction.Distance);
                 break;
         }
     }

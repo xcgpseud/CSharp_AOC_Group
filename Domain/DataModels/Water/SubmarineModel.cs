@@ -1,56 +1,14 @@
-﻿namespace Domain.DataModels.Water;
+﻿using Domain.DataModels.Interfaces.Water;
 
-public class SubmarineModel
+namespace Domain.DataModels.Water;
+
+public abstract class SubmarineModel : ISubmarineModel
 {
-    protected int HorizontalPosition { get; set; }
+    public int HorizontalPosition { get; set; }
 
-    protected int Depth { get; set; }
+    public int Depth { get; set; }
 
-    public static SubmarineModel Make()
-    {
-        return new SubmarineModel();
-    }
 
-    private void MoveForward(int distance)
-    {
-        HorizontalPosition += distance;
-    }
+    public abstract int TravelAndReportLocation(IEnumerable<SubmarineInstruction> instructions);
 
-    private void MoveUp(int distance)
-    {
-        Depth -= distance;
-    }
-
-    private void MoveDown(int distance)
-    {
-        Depth += distance;
-    }
-
-    public int TravelAndReportBack(IEnumerable<SubmarineInstruction> instructions)
-    {
-        instructions.ToList().ForEach(ExecuteInstruction);
-
-        return HorizontalPosition * Depth;
-    }
-
-    private void ExecuteInstruction(SubmarineInstruction instruction)
-    {
-        switch (instruction.Direction)
-        {
-            case "forward":
-                MoveForward(instruction.Distance);
-                break;
-            case "up":
-                MoveUp(instruction.Distance);
-                break;
-            case "down":
-                MoveDown(instruction.Distance);
-                break;
-        }
-    }
-
-    public (int, int) GetHorizontalPositionAndDepth()
-    {
-        return (HorizontalPosition, Depth);
-    }
 }
