@@ -14,15 +14,17 @@ public class Challenge2 : BaseChallenge
 
     private SubmarineInstruction[] GetInput()
     {
-        return FileHelper.GetFileLines(GetFileName(Name.Chris), line =>
+        return FileHelper.GetFileLines(GetFileName(Name.Chris), ParseLine);
+    }
+
+    private SubmarineInstruction ParseLine(string line)
+    {
+        var split = line.Split(' ');
+        return new SubmarineInstruction
         {
-            var split = line.Split(' ');
-            return new SubmarineInstruction
-            {
-                Direction = split[0],
-                Distance = int.Parse(split[1]),
-            };
-        });
+            Direction = split[0],
+            Distance = int.Parse(split[1]),
+        };
     }
 
     public override string GetPartOneAnswer()
