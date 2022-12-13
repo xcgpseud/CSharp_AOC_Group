@@ -56,8 +56,6 @@ namespace AdventOfCode.Challenges.Eddie
 
             int increaseCount = 0;
 
-
-
             int i = 0;
 
             var original = input[i] + input[i + 1] + input[i + 2];

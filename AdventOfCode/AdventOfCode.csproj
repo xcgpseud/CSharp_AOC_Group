@@ -26,6 +26,7 @@
     <ItemGroup>
       <None Remove="Inputs\Chris\c1.txt" />
       <None Remove="Inputs\Eddie\2.txt" />
+      <None Remove="Inputs\Eddie\3.txt" />
       <None Remove="Inputs\Eddie\c1.txt" />
     </ItemGroup>
 
@@ -40,6 +41,10 @@
       </EmbeddedResource>
 
       <EmbeddedResource Include="Inputs\Eddie\2.txt">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </EmbeddedResource>
+
+      <EmbeddedResource Include="Inputs\Eddie\3.txt">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </EmbeddedResource>
     </ItemGroup>
